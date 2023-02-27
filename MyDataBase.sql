@@ -21,4 +21,3 @@ INSERT INTO `country` (`CountryId`, `CountryName`) VALUES ('18', 'Bosnia and her
 INSERT INTO Ppl (personId, PersonName, CountryId) VALUES ('1' , 'John', 17);
 INSERT INTO Ppl (personId, PersonName, CountryId) VALUES ('2' , 'Angelina', 18);
 INSERT INTO Ppl (personId, PersonName, CountryId) VALUES ('3' , 'Ahmed', 17);
-
