@@ -1,5 +1,4 @@
 <?php
-
 $host = "localhost";
 $user = "root";
 $psw = "";
@@ -9,9 +8,7 @@ $connection = mysqli_connect($host, $user, $psw, $db);
 $giveMeCountries = $connection->prepare("SELECT * FROM country");
 //BIND PARAM WHEN NEEDED !!!
 $giveMeCountries->execute();
-
 $result = $giveMeCountries->get_result();
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +42,7 @@ $result = $giveMeCountries->get_result();
                 <?php
                 print("<td>" . $row["CountryId"] . "</td>");
                 print("<td>" . $row["CountryName"] . "</td>");
-                print("<td>" . $row["CountryPopulation"] ."</td>");
+                print("<td>" . $row["CountryPopulation"] . "</td>");
                 ?>
             </tr>
         <?php
