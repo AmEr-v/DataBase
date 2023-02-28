@@ -5,6 +5,7 @@ use RosiDB;
 CREATE TABLE Country (
     CountryId int auto_increment,
     CountryName varchar(50),
+    CountryPopulation int(10),
     Primary key(CountryId)
 );
 
@@ -15,8 +16,8 @@ CREATE TABLE Ppl(
     Primary key (PersonId),
     Foreign key (CountryId) References Country(CountryId)
 );
-INSERT INTO `country` (`CountryId`, `CountryName`) VALUES ('17', 'Denmark');
-INSERT INTO `country` (`CountryId`, `CountryName`) VALUES ('18', 'Bosnia and herzegovina');
+INSERT INTO `country` (`CountryId`, `CountryName`, CountryPopulation) VALUES ('17', 'Denmark', "5857000");
+INSERT INTO `country` (`CountryId`, `CountryName`, CountryPopulation) VALUES ('18', 'Bosnia and herzegovina', "3271000");
 
 INSERT INTO Ppl (personId, PersonName, CountryId) VALUES ('1' , 'John', 17);
 INSERT INTO Ppl (personId, PersonName, CountryId) VALUES ('2' , 'Angelina', 18);
