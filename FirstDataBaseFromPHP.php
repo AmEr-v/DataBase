@@ -5,10 +5,27 @@ $psw = "";
 $db = "rosidb";
 $connection = mysqli_connect($host, $user, $psw, $db);
 //SELECT * FROM `rosidb`.`country` LIMIT 1000;
-$giveMeCountries = $connection->prepare("SELECT * FROM country");
+$filterData = false;
+
+if(isset($_POST["population"])){
+    $filterData = true;
+}
+
+if($filterData){
+    $giveMeCountries = $connection -> prepare("SELECT * FROM country where CountryPopulation <?");
+    $giveMeCountries -> bind_param("i",$_POST["population"]);
+}
+else{
+    $giveMeCountries = $connection->prepare("SELECT * FROM country");
+}
 //BIND PARAM WHEN NEEDED !!!
 $giveMeCountries->execute();
 $result = $giveMeCountries->get_result();
+
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,6 +46,11 @@ $result = $giveMeCountries->get_result();
 </head>
 
 <body>
+    <form method="POST">
+        <input type="number" placeholder="Choosee number of population" name="population">
+        <input type="submit" value="Filter">
+    </form>
+    <br><br><br>
     <table>
         <tr>
             <th>Country ID</th>

@@ -16,6 +16,7 @@ CREATE TABLE Ppl(
     Primary key (PersonId),
     Foreign key (CountryId) References Country(CountryId)
 );
+
 INSERT INTO `country` (`CountryName`, CountryPopulation) VALUES ('Denmark', "5857000");
 INSERT INTO `country` (`CountryName`, CountryPopulation) VALUES ('Bosnia and herzegovina', "3271000");
 INSERT INTO `country` (`CountryName`, CountryPopulation) VALUES ('USA', "310000000");
