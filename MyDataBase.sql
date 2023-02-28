@@ -5,7 +5,7 @@ use RosiDB;
 CREATE TABLE Country (
     CountryId int auto_increment,
     CountryName varchar(50),
-    CountryPopulation int(10),
+    CountryPopulation int,
     Primary key(CountryId)
 );
 
@@ -16,9 +16,11 @@ CREATE TABLE Ppl(
     Primary key (PersonId),
     Foreign key (CountryId) References Country(CountryId)
 );
-INSERT INTO `country` (`CountryId`, `CountryName`, CountryPopulation) VALUES ('17', 'Denmark', "5857000");
-INSERT INTO `country` (`CountryId`, `CountryName`, CountryPopulation) VALUES ('18', 'Bosnia and herzegovina', "3271000");
+INSERT INTO `country` (`CountryName`, CountryPopulation) VALUES ('Denmark', "5857000");
+INSERT INTO `country` (`CountryName`, CountryPopulation) VALUES ('Bosnia and herzegovina', "3271000");
+INSERT INTO `country` (`CountryName`, CountryPopulation) VALUES ('USA', "310000000");
+INSERT INTO `country` (`CountryName`, CountryPopulation) VALUES ('Portugal', "10000000");
 
-INSERT INTO Ppl (personId, PersonName, CountryId) VALUES ('1' , 'John', 17);
-INSERT INTO Ppl (personId, PersonName, CountryId) VALUES ('2' , 'Angelina', 18);
-INSERT INTO Ppl (personId, PersonName, CountryId) VALUES ('3' , 'Ahmed', 17);
+INSERT INTO Ppl (personId, PersonName, CountryId) VALUES ('1' , 'John', 1);
+INSERT INTO Ppl (personId, PersonName, CountryId) VALUES ('2' , 'Angelina', 2);
+INSERT INTO Ppl (personId, PersonName, CountryId) VALUES ('3' , 'Ahmed', 2);
