@@ -6,11 +6,9 @@ $db = "rosidb";
 $connection = mysqli_connect($host, $user, $psw, $db);
 //SELECT * FROM `rosidb`.`country` LIMIT 1000;
 $filterData = false;
-
 if (isset($_POST["population"])) {
     $filterData = true;
 }
-
 if ($filterData) {
     $giveMeCountries = $connection->prepare("SELECT * FROM country where CountryPopulation <?");
     $giveMeCountries->bind_param("i", $_POST["population"]);
