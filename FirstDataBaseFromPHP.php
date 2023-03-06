@@ -10,8 +10,9 @@ if (isset($_POST["population"])) {
     $filterData = true;
 }
 if ($filterData) {
-    $giveMeCountries = $connection->prepare("SELECT * FROM country where CountryPopulation <?");
-    $giveMeCountries->bind_param("i", $_POST["population"]);
+    $Firstletter = $_POST["Firstname"] .'%';
+    $giveMeCountries = $connection->prepare("SELECT * FROM country where CountryPopulation <? AND CountryName LIKE ?");
+    $giveMeCountries->bind_param("is", $_POST["population"], $Firstletter);
 } else {
     $giveMeCountries = $connection->prepare("SELECT * FROM country");
 }
@@ -41,6 +42,7 @@ $result = $giveMeCountries->get_result();
     <form method="POST">
         <input type="number" placeholder="Choosee number of population" name="population">
         <input type="submit" value="Filter">
+        <input type="text" name="Firstname">
     </form>
     <br><br><br>
     <table>
